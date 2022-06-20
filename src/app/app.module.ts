@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/heroes/hero-component/hero.component';
 import { HeroesComponent } from './pages/heroes/heroes/heroes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     HomeComponent,
     HeroComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,

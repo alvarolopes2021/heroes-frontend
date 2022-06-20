@@ -17,7 +17,15 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>DETAILS</button>
-        <button mat-button>DELETE</button>
+        <button mat-button (click)="showDetail = !showDetail">DETAILS</button>
+        <button mat-button (click)="executeAction()">DELETE</button>
     </mat-card-actions>
+
+    <div class="detail" *ngIf="showDetail">
+        <form  [formGroup]="form"></form>
+        <input type="text" [value]="title">
+        <input type="text" [value]="subtitle">
+        <input type="text" [value]="data.weapon">
+        <button mat-button (click)="update()">UPDATE</button>
+    </div>
 </mat-card>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Constants } from 'src/constants';
@@ -18,6 +18,13 @@ export class HeroesService {
 
   addHero(hero: HeroModel){
     return this.http.post<HeroModel>(Constants.HttpEndpoints.ADD_HERO, hero);
+  }
+
+  deleteHero(hero: HeroModel){
+    if(hero == null)
+      return;
+
+    return this.http.post<HeroModel>(Constants.HttpEndpoints.DELETE_HERO, hero);
   }
 
 }

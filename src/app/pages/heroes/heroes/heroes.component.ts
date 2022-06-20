@@ -33,7 +33,7 @@ export class HeroesComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     heroname: new FormControl('', Validators.required),
-    superpower: new FormControl('', Validators.required),
+    group: new FormControl('', Validators.required),
     weapon: new FormControl('', Validators.required),
     photo: new FormControl(),
     backgroundimage: new FormControl()
@@ -45,24 +45,36 @@ export class HeroesComponent implements OnInit {
 
     let hero: HeroModel = {
       name: this.form.get('heroname')?.value,
-      superpower: this.form.get('superpower')?.value,
+      group: this.form.get('group')?.value,
       weapon: this.form.get('weapon')?.value,
       profilepic: this.fileBase64,
       backgroundimage: this.backgroundimage
     };
   
-    this.heroList.push(hero);
-
     this.heroesService.addHero(hero).subscribe((value) => {
-      this.heroList.push(hero);
+      this.heroList.push(value);
     });   
 
+  }
+
+  deleteHero(hero: HeroModel){
+    let op = confirm("Do you want to delete this hero?");
+    if(!op)
+      return;
+
+    this.heroesService.deleteHero(hero)?.subscribe(value => {
+
+      let index = this.heroList.indexOf(hero);
+
+      if(index !== -1)
+        this.heroList.splice(index, 1);
+        
+    });
   }
 
   processFile(imageInput: HTMLInputElement, type: string = "PROFILE") {
     const file: File = imageInput.files![0];
     const reader = new FileReader();
-
     
     reader.addEventListener('load', (event: any) => {
 
