@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CompanyModel } from 'src/app/models/company.model';
 import { HeroModel } from 'src/app/models/hero.model';
+import { CompanyService } from 'src/app/services/company.service';
 import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
@@ -12,6 +14,7 @@ import { HeroesService } from 'src/app/services/heroes.service';
 export class HeroDetailComponent implements OnInit {
 
   heroModel?: HeroModel;  
+  companyList: CompanyModel[] = [];
 
   fileBase64 : string | undefined = "";
   
@@ -21,13 +24,15 @@ export class HeroDetailComponent implements OnInit {
     heroname: new FormControl('', Validators.required),
     group: new FormControl('', Validators.required),
     weapon: new FormControl('', Validators.required),
+    herocompany: new FormControl(''),
     photo: new FormControl(),
     backgroundimage: new FormControl()
   });
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroesService
+    private heroService: HeroesService,
+    private companyService: CompanyService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +40,10 @@ export class HeroDetailComponent implements OnInit {
     if(id == null)
       return;
 
+    this.companyService.getCompanies()?.subscribe(value => {
+      this.companyList = <CompanyModel[]> value;
+    });
+    
     this.heroService.heroDetail(id)?.subscribe(value => {
       this.heroModel = <HeroModel>value;
 
@@ -53,6 +62,7 @@ export class HeroDetailComponent implements OnInit {
       name: this.form.get('heroname')?.value,
       group: this.form.get('group')?.value,
       weapon: this.form.get('weapon')?.value,
+      companyid: this.form.get('herocompany')?.value,
       profilepic: this.fileBase64,
       backgroundimage: this.backgroundimage
     }

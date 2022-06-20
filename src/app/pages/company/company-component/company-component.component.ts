@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  selector: 'app-company-component',
+  templateUrl: './company-component.component.html',
+  styleUrls: ['./company-component.component.css']
 })
-export class HeroComponent implements OnInit {
+export class CompanyComponentComponent implements OnInit {
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+    
   executeAction(){
     this.action.next(this.data);
   } 

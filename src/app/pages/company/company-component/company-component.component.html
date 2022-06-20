@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <img src="{{profilepic}}" alt="Profile picture">
+        </div>
+        <mat-card-title>{{title}}</mat-card-title>
+        <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+        <mat-card-subtitle>{{undersub}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="background-image">
+        <img src="{{pic}}" alt="Photo of a Company">
+    </div>
+
+    <mat-card-content>
+        <p>
+            {{description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-button [routerLink]="['company-detail', data.companyid]">DETAILS</a>
+        <button mat-button (click)="executeAction()">DELETE</button>
+    </mat-card-actions>
+</mat-card>

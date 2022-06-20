@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CompanyModel } from 'src/app/models/company.model';
 import { CompanyService } from 'src/app/services/company.service';
@@ -6,7 +6,8 @@ import { CompanyService } from 'src/app/services/company.service';
 @Component({
   selector: 'app-all-companies',
   templateUrl: './all-companies.component.html',
-  styleUrls: ['./all-companies.component.css']
+  styleUrls: ['./all-companies.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AllCompaniesComponent implements OnInit {
 

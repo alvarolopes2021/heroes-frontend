@@ -29,7 +29,7 @@
     </div>
 
     <div *ngFor="let company of companyList" class="hero-card">
-        <app-hero
+        <app-company-component
             title="{{company.companyname}}"
             subtitle="{{company.owner}}"
             profilepic="{{company.profilepic}}"
@@ -39,7 +39,7 @@
             (action2)="updateCompany"
             company=""
             description=""
-        ></app-hero>
+        ></app-company-component>
     </div>
 
 </div>

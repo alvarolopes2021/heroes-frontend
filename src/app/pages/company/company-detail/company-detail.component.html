@@ -8,17 +8,13 @@
             <input type="text" name="" id="" placeholder="Company name" formControlName="companyname">
             <input type="text" name="" id="" placeholder="Creation year" formControlName="creationyear">
             <input type="text" name="" id="" placeholder="Owner" formControlName="owner">
-            <div>
-                <select name="" id="">
-                    <option value="" disabled selected>COMPANY</option>
-                </select>
-            </div>
+
             <label for="">Profile Image</label>
             <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" formControlName="photo">
 
             <label for="">Background Image</label>
-            <input #backimage type="file" accept="image/*" (change)="processFile(backimage, 'BACK')"
-                formControlName="backgroundimage">
+            <input #backimage type="file" accept="image/*" (change)="processFile(backimage, 'BACK')" formControlName="backgroundimage">
+                
             <button mat-button (click)="updateCompany()">UPDATE</button>
         </form>
     </div>

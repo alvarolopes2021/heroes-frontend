@@ -9,8 +9,10 @@
             <input type="text" name="" id="" placeholder="Group" formControlName="group">
             <input type="text" name="" id="" placeholder="Weapon" formControlName="weapon">
             <div>
-                <select name="" id="">
+                <select name="" id="" formControlName="herocompany">
                     <option value="" disabled selected>COMPANY</option>
+                    <option value="" disabled selected *ngIf="companyList.length <= 0">NO COMPANIES AVAILABEL</option>
+                    <option value="{{company.companyid}}" *ngFor="let company of companyList">{{company.companyname}}</option>
                 </select>
             </div>
             <label for="">Profile Image</label>
