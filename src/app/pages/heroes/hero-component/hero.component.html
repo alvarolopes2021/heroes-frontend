@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <img src="{{profilepic}}" alt="Profile picture">
+        </div>
+        <mat-card-title>{{title}}</mat-card-title>
+        <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="background-image">
+        <img src="{{pic}}" alt="Photo of a Hero">
+    </div>
+
+    <mat-card-content>
+        <p>
+            {{description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>DETAILS</button>
+        <button mat-button>DELETE</button>
+    </mat-card-actions>
+</mat-card>

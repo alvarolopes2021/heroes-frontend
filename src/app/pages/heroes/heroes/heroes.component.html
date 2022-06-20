@@ -1,0 +1,38 @@
+<div class="actions">
+    <button mat-button (click)="willAdd = !willAdd"><mat-icon>add</mat-icon>ADD</button>   
+</div>
+
+<div *ngIf="willAdd">
+    <form [formGroup]="form">
+        <input type="text" name="" id="" placeholder="Hero name" formControlName="heroname">
+        <input type="text" name="" id="" placeholder="Superpower" formControlName="superpower">
+        <input type="text" name="" id="" placeholder="Weapon" formControlName="weapon">
+        <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" formControlName="photo">
+        <input #backimage type="file" accept="image/*" (change)="processFile(backimage, 'BACK')" formControlName="backgroundimage">
+        <button mat-button type="button" class="middle-action" (click)="add()">ADD</button>
+    </form>    
+</div>
+
+<div class="main">
+    
+    <div class="add-nav">
+        
+    </div>
+
+    <div *ngIf="heroList.length <= 0" class="empty">
+        <div>
+            <h3>NO HEROES WERE INSERTED</h3>
+        </div>
+    </div>
+
+    <div *ngFor="let hero of heroList" class="hero-card">
+        <app-hero
+            title="{{hero.name}}"
+            profilepic="{{hero.profilepic}}"
+            pic="{{hero.backgroundimage}}"
+            company=""
+            description=""
+        ></app-hero>
+    </div>
+
+</div>
