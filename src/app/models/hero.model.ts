@@ -5,4 +5,5 @@ export interface HeroModel{
     weapon: string;
     profilepic?: string;
     backgroundimage?: string;
+    companyid?: string;
 }

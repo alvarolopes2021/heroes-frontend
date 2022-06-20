@@ -4,11 +4,14 @@
 
 <div *ngIf="willAdd">
     <form [formGroup]="form">
-        <input type="text" name="" id="" placeholder="Hero name" formControlName="heroname">
-        <input type="text" name="" id="" placeholder="Group" formControlName="group">
-        <input type="text" name="" id="" placeholder="Weapon" formControlName="weapon">
+        <input type="text" name="" id="" placeholder="Company name" formControlName="companyname">
+        <input type="text" name="" id="" placeholder="Creation year" formControlName="creationyear">
+        <input type="text" name="" id="" placeholder="Owner" formControlName="owner">
+
         <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" formControlName="photo">
+
         <input #backimage type="file" accept="image/*" (change)="processFile(backimage, 'BACK')" formControlName="backgroundimage">
+        
         <button mat-button type="button" class="middle-action" (click)="add()">ADD</button>
     </form>    
 </div>
@@ -19,21 +22,21 @@
         
     </div>
 
-    <div *ngIf="heroList.length <= 0" class="empty">
+    <div *ngIf="companyList.length <= 0" class="empty">
         <div>
-            <h3>NO HEROES WERE INSERTED</h3>
+            <h3>NO COMPANIES WERE INSERTED</h3>
         </div>
     </div>
 
-    <div *ngFor="let hero of heroList" class="hero-card">
+    <div *ngFor="let company of companyList" class="hero-card">
         <app-hero
-            title="{{hero.name}}"
-            subtitle="{{hero.group}}"
-            profilepic="{{hero.profilepic}}"
-            pic="{{hero.backgroundimage}}"
-            [data]="hero"
-            (action)="deleteHero(hero)"
-            (action2)="updateHero"
+            title="{{company.companyname}}"
+            subtitle="{{company.owner}}"
+            profilepic="{{company.profilepic}}"
+            pic="{{company.backgroundimage}}"
+            [data]="company"
+            (action)="deleteCompany(company)"
+            (action2)="updateCompany"
             company=""
             description=""
         ></app-hero>

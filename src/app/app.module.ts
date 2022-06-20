@@ -14,6 +14,8 @@ import { HeroComponent } from './pages/heroes/hero-component/hero.component';
 import { HeroesComponent } from './pages/heroes/heroes/heroes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.component';
+import { CompanyDetailComponent } from './pages/company/company-detail/company-detail.component';
+import { AllCompaniesComponent } from './pages/company/all-companies/all-companies.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HeroDetailComponent } from './pages/heroes/hero-detail/hero-detail.comp
     HomeComponent,
     HeroComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    CompanyDetailComponent,
+    AllCompaniesComponent
   ],
   imports: [
     BrowserModule,

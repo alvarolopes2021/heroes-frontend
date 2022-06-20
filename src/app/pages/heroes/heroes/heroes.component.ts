@@ -72,6 +72,17 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  updateHero(hero: HeroModel){
+    this.heroesService.updateHero(hero)?.subscribe(value => {
+
+      let index = this.heroList.indexOf(hero);
+
+      if(index !== -1)
+        this.heroList[index] = value;
+        
+    });
+  }
+
   processFile(imageInput: HTMLInputElement, type: string = "PROFILE") {
     const file: File = imageInput.files![0];
     const reader = new FileReader();

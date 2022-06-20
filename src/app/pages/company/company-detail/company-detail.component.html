@@ -1,13 +1,13 @@
 <div class="detail">
     <div class="profile-image">
-        <img src="{{heroModel?.profilepic}}" alt="">
+        <img src="{{companyModel?.profilepic}}" alt="">
     </div>
     <div class="hold-infos">
         <h3>INFOS</h3>
         <form action="" [formGroup]="form">
-            <input type="text" name="" id="" placeholder="Hero name" formControlName="heroname">
-            <input type="text" name="" id="" placeholder="Group" formControlName="group">
-            <input type="text" name="" id="" placeholder="Weapon" formControlName="weapon">
+            <input type="text" name="" id="" placeholder="Company name" formControlName="companyname">
+            <input type="text" name="" id="" placeholder="Creation year" formControlName="creationyear">
+            <input type="text" name="" id="" placeholder="Owner" formControlName="owner">
             <div>
                 <select name="" id="">
                     <option value="" disabled selected>COMPANY</option>
@@ -19,7 +19,7 @@
             <label for="">Background Image</label>
             <input #backimage type="file" accept="image/*" (change)="processFile(backimage, 'BACK')"
                 formControlName="backgroundimage">
-            <button mat-button (click)="updateHero()">UPDATE</button>
+            <button mat-button (click)="updateCompany()">UPDATE</button>
         </form>
     </div>
 </div>
